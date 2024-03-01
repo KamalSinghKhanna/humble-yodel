@@ -1,27 +1,29 @@
 import './App.css';
+import { CheckOutStepper } from './components/CheckOutStepper';
 
 function App() {
+  const CHECKOUT_STEPS = [
+    {
+      name: "Customer Info",
+      Component: () => <div>Provide your contact details.</div>,
+    },
+    {
+      name: "Shipping Info",
+      Component: () => <div>Enter your shipping address.</div>,
+    },
+    {
+      name: "Payment",
+      Component: () => <div>Complete payment for your order.</div>,
+    },
+    {
+      name: "Delivered",
+      Component: () => <div> Your order has been delivered.</div>,
+    },
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src="Octocat.png" className="App-logo" alt="logo" />
-        <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
-        </p>
-        <p className="small">
-          Edit <code>src/App.jsx</code> and save to reload.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
+    <div >
+      <h1>Checkout</h1>
+      <CheckOutStepper stepsConfig={CHECKOUT_STEPS} />
     </div>
   );
 }
